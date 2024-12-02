@@ -1,4 +1,3 @@
-import { ContentLayout } from "@/src/components/user-panel/content-layout-user-panel";
 import { NextPage } from "next";
 const SECRET_KEY = process.env.JWT_SECRET_KEY || "your-secret-key";
 import {
@@ -7,7 +6,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/src/components/ui/tabs";
-import { projectsData } from "@/src/constants/projects";
+import projectsData from "@/src/constants/projects";
 import {
   Accordion,
   AccordionItem,
@@ -15,6 +14,7 @@ import {
   AccordionContent,
 } from "@/src/components/ui/accordion";
 import { UKTemplatesData, USTemplatesData } from "@/src/constants/templates";
+import Link from "next/link";
 
 async function setJwt() {
   const response = await fetch("http://localhost:3000/api/ssologin");
@@ -41,7 +41,6 @@ const HomePage: NextPage<projectIDProp> = ({ params }) => {
             )?.projectName
           }
         </h2>
-        <div className="flex items-center space-x-2"></div>
       </div>
       <Tabs
         defaultValue="US"
@@ -99,13 +98,20 @@ const HomePage: NextPage<projectIDProp> = ({ params }) => {
               <AccordionTrigger>SOW</AccordionTrigger>
               <AccordionContent>
 			  {UKTemplatesData.map((template) => {
-                  if (template.parentId === "SOW") {
-                    return (
-                      <li key={template.templateId}>{template.templateName}</li>
-                    );
-                  }
-                  return null;
-                })}
+  if (template.parentId === "SOW") {
+    return (
+      <li key={template.templateId}>
+        <Link 
+          href={`/${projectId}/${template.templateId}`} 
+        //   onClick={() => console.log(`Navigating to /home/${projectId}/${template.templateId}`)}
+        >
+          {template.templateName}
+        </Link>
+      </li>
+    );
+  }
+  return null;
+})}
 			  </AccordionContent>
             </AccordionItem>
           </Accordion>
