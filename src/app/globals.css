@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 98%; /* white */
+		--foreground: 247 70% 21%; /* dark blue */
+
+		--primary: 247 70% 21%; /*222.2 47.4% 11.2%;*/
+		--primary-foreground: 254 81% 20%; /* 210 40% 98%;*/
+
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+
+		--muted: 340 100% 69%; /*210 40% 96.1%;*/
+		--muted-foreground: 340 100% 69%; /*215.4 16.3% 46.9%;*/
+
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--ring: 222.2 84% 4.9%;
+
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 247 70% 7%;
+		--foreground: 0 0% 100%;
+
+		--primary: 247 70% 21%;
+		--primary-foreground: 0 0% 100%;
+
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 340 100% 69%;
+
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: 210 40% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--ring: 212.7 26.8% 83.9%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+.focus-visible\:ring-offset-2:focus-visible {
+  	--tw-ring-offset-width: -12px !important;
+}
+
+*::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  border-style: none;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: #999999;
+	border-width: 0px;
+	border-style: solid;
+	border-color: inherit;
+	border-radius: 16px;
+}
+
+.bg-image-jman {
+	background-image: url("../../public/background-light.png");
+	background-repeat: no-repeat;
+	background-size: 70%;
+	background-position: right -30px top -10px;
+}
+
+.bg-gradient-jman {
+  	background: linear-gradient(#19105B, #A16BDB);
+}
+
+.nav-gradient {
+  	background-color: #ffffff;
+}
+
+.nav-gradient-dark {
+  	background: linear-gradient(to bottom, #000000, #485a58) !important;
+}
+
+.sidebar-bg {
+  	background-image: url("../../public/LogoIcons/All_Seeing_Slidebar_Background.svg");
+}
+
+.home-bg{
+	background-image:  url("../../public/background-light.png"); 
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.listing-bg {
+	background-image: url("../../public/LogoIcons/Focused_Card_Backgound_Blue.svg");
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/* ExpandableText.module.css */
+.reset-heading h1,
+.reset-heading h2,
+.reset-heading h3,
+.reset-heading h4,
+.reset-heading h5,
+.reset-heading h6 {
+	font-size: revert;
+	font-weight: revert;
+	margin: revert;
+}
+
+.reset-heading code{
+	padding: 4px;
+	background-color: #afb8c1;
+	color: black;
+	border-radius: 5px;
+}
+
+.reset-heading pre code {
+	padding: 7px;
+	background-color: #f6f8fa;
+	color: black;
+	border-radius: 5px;
+	border-color: #19105B;
+	border: 20px;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.reset-heading ul, .reset-heading ol {
+	list-style: revert;
+	margin: revert;
+	padding: revert;
+}
+
+.reset-heading blockquote {
+	padding: 10px;
+	padding-left: 20px;
+	border-left: 5px solid #d0d7de;
+}
+
+.reset-heading a {
+	color: blue;
+	text-decoration: underline;
+}
+
+/* datatable */
+
+.data-table-wrapper {
+  	width: 100%;
+}
+
+.data-table-header {
+	display: flex;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.data-table-input {
+  	max-width: 24rem; 
+}
+
+.data-table-dropdown-button {
+  	margin-left: auto; 
+}
+
+.data-table-dropdown-icon {
+	margin-left: 0.5rem; 
+	height: 1rem;
+	width: 1rem;
+}
+
+.data-table-container {
+	border-radius: 0.375rem; 
+	border: 0.5px solid #e0e0e0;
+	outline: none;
+	background-color: #ffffff;
+}
+
+.data-table-container-dark {
+	border-color: #f8fafc; 
+	background-color: #1f2937; 
+}
+
+.data-table-pagination {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.data-table-pagination-info {
+	flex: 1;
+	font-size: 0.875rem; 
+	color: #6b7280; 
+}
+
+.data-table-pagination-buttons {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.data-table-pagination-button {
+	padding: 0.375rem 0.75rem; 
+	font-size: 0.875rem; 
+	border-radius: 0.375rem; 
+}
+
+.data-table-pagination-button-outline {
+	background-color: transparent;
+	border-color: #e5e7eb; 
+}

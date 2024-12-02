@@ -1,0 +1,13 @@
+if [[ -f package.json || -f yarn.lock ]]; then
+	npm install
+fi
+
+
+if git diff --quiet HEAD^1 -- prisma/schema.prisma; then
+	echo "No changes to prisma/schema.prisma, skipping migrations."
+else
+	echo "Schema has changed, applying migrations..."
+	npx prisma generate
+	npx prisma migrate dev
+	npx prisma migrate deploy
+fi
